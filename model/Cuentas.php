@@ -22,12 +22,9 @@ class cuentas extends conexion{
 	}
 	
 	public function crear($tipo){
-			$sql = "INSERT INTO `cuentas` (`idcuenta`, `numerocuenta`, `vencimiento`, `created`, `estado`, `tipo`) VALUES (NULL, '777777777', '2021-09-24 00:00:00', CURRENT_TIMESTAMP, 'activo', '".$tipo."');";
+			$sql = "INSERT INTO `cuentas` (`idcuenta`, `numerocuenta`, `vencimiento`, `created`, `estado`, `tipo`) VALUES (NULL, '".date("U")."', '2021-09-24 00:00:00', '2021-05-27 23:55:57', 'activo', '".$tipo."');";
 			$this->getConexion();
-			$resultado = $this->cnx->query($sql) or die ($sql);
-			$resultado->execute();	
-			$usuarios = [];
-            return  $resultado->fetchAll();
+			return $resultado = $this->cnx->query($sql) or die ($sql);
 	}
 	
 	public function modificar(){

@@ -10,8 +10,7 @@ switch($type){
 		$json = file_get_contents('php://input');
 		$data = json_decode($json);
 		$val = (array)$data;
-		$model->obtener($val["tipo"]);
-		
+		echo $model->crear($val["tipo"]);
 	break;	
 	case('PUT'): 
 		$model->modificar();
