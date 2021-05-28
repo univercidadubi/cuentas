@@ -1,17 +1,16 @@
 <?php
 include_once('model/Cuentas.php');
-$type =  getenv('REQUEST_METHOD');
-$model = new Cuentas();
+ getenv('REQUEST_METHOD');
 switch($type){
     case('GET'): 
         echo json_encode($model->obtener());
     break;
-	case('POST'):
-		$json = file_get_contents('php://input');
-		$data = json_decode($json);
-		$val = (array)$data;
-		$model->obtener($val["tipo"]);
-		
+	case('POST'): 
+	    //$json = file_get_contents('php://input');
+
+        echo  "ddd";
+
+		//echo $model->crear($_POST);
 	break;	
 	case('PUT'): 
 		$model->modificar();
@@ -20,5 +19,8 @@ switch($type){
 	case('DELETE'): 
 		$model->eliminar(1);
 	break;	
-
+	
+	case('PATH'): 
+		$model->modificaropcion();
+	break;	
 }

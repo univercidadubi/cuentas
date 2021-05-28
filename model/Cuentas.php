@@ -21,8 +21,13 @@ class cuentas extends conexion{
 		}
 	}
 	
-	public function crear($data){
-		return json_encode($data);
+	public function crear($tipo){
+			$sql = "INSERT INTO `cuentas` (`idcuenta`, `numerocuenta`, `vencimiento`, `created`, `estado`, `tipo`) VALUES (NULL, '777777777', '2021-09-24 00:00:00', CURRENT_TIMESTAMP, 'activo', '".$tipo."');";
+			$this->getConexion();
+			$resultado = $this->cnx->query($sql) or die ($sql);
+			$resultado->execute();	
+			$usuarios = [];
+            return  $resultado->fetchAll();
 	}
 	
 	public function modificar(){
