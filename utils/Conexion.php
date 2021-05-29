@@ -14,7 +14,7 @@ abstract class conexion{
 			$this->cnx = new PDO($this->manejador.":host=".self::$servidor.";dbname=".$this->db_name,self::$usuario,self::$pass,$params);			
 			return $this->cnx;
 		}catch (PDOException $ex){
-			echo "Error en la conexiÃ³n : ".$ex->getMessage();			
+			echo "Error en la conexión : ".$ex->getMessage();			
 		}		
 	}
 }
