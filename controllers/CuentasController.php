@@ -17,8 +17,8 @@ class CuentasControler {
     public function actionView(int $id) {
         $arr = [
             "cuenta" => $this->model->obtener($id),
-            "saldos" => [],
-            "transacciones" => [],
+            "transacciones" => $this->model->transacciones($id),
+            "saldos" => $this->model->saldos($id)
         ];
         return json_encode($arr);
     }
@@ -27,7 +27,7 @@ class CuentasControler {
         $json = file_get_contents('php://input');
         $data = json_decode($json);
         $val = (array) $data;
-        $resp = $this->model->crear($val["tipo"]);
+        $resp = $this->model->crear($val["vencimiento"], $val["tipo"]);
         return json_encode($resp);
     }
 

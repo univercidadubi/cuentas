@@ -20,11 +20,7 @@ switch ($type) {
         }
         break;
     case('POST'):
-        if ($url == 'cuentas') {
-            echo $cuentas->actionCreate();
-        } else {
-            echo $transax->actionCreate();
-        }
+        echo $transax->actionCreate();
         break;
     case('PUT'):
         $model->modificar();
