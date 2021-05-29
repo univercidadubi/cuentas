@@ -1,6 +1,7 @@
 <?php
+header('Content-Type: application/json');
 include_once('model/Cuentas.php');
-$type =  getenv('REQUEST_METHOD');
+$type =  $_SERVER['REQUEST_METHOD'];
 $model = new Cuentas();
 switch($type){
     case('GET'): 
@@ -10,7 +11,7 @@ switch($type){
 		$json = file_get_contents('php://input');
 		$data = json_decode($json);
 		$val = (array)$data;
-		echo $model->crear($val["tipo"]);
+		echo $model->crear($val["vencimiento"],$val["created"],$val["tipo"]);
 	break;	
 	case('PUT'): 
 		$model->modificar();

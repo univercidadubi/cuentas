@@ -2,9 +2,9 @@
 abstract class conexion{
 	protected $manejador		=	"mysql";
 	private static $servidor	=	"localhost";
-	private static $usuario		=	"root";
-	private static $pass 		=	"";
-	protected $db_name			=	"cuentas";
+	private static $usuario		=	"irra";
+	private static $pass 		=	"123456";
+	protected $db_name			=	"transacciones";
 	protected $cnx;
     
 	protected function getConexion(){

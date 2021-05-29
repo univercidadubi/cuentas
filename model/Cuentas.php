@@ -8,21 +8,17 @@ class cuentas extends conexion{
 			$sql="SELECT * FROM cuentas";
 			$resultado = $this->cnx->query($sql) or die ($sql);
 			$resultado->execute();	
-			$usuarios = [];
-            return  $resultado->fetchAll();
-
-
-		/*	foreach($resultado as $res){
-				$usuarios[] = $res;
-			}
-			return $usuarios;*/
-		}catch (PDOException $e){
+	                return  ($resultado->fetchAll(PDO::FETCH_ASSOC));
+		} catch (PDOException $e){
 			echo "Error : ".$e->getMessage();			
 		}
 	}
 	
-	public function crear($tipo){
-			$sql = "INSERT INTO `cuentas` (`idcuenta`, `numerocuenta`, `vencimiento`, `created`, `estado`, `tipo`) VALUES (NULL, '".date("U")."', '2021-09-24 00:00:00', '2021-05-27 23:55:57', 'activo', '".$tipo."');";
+	public function crear($vencimiento,$created, $tipo){
+			$f = DateTime::createFromFormat('Y-m-d', $created);
+			$v = DateTime::createFromFormat('Y-m-d', $created);
+
+			$sql = "INSERT INTO `cuentas` (`idcuenta`, `numerocuenta`, `vencimiento`, `created`, `estado`, `tipo`) VALUES (NULL, '".date("U")."', '".$vencimiento."', '".$f->format('Y-m-d')."', 'activo', '".$tipo."');";
 			$this->getConexion();
 			return $resultado = $this->cnx->query($sql) or die ($sql);
 	}
