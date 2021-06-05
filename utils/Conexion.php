@@ -1,21 +1,21 @@
 <?php
 
-abstract class conexion {
+class Conexion {
 
-    protected $manejador = "mysql";
-    private static $servidor = "localhost";
-    private static $usuario = "root";
-    private static $pass = "";
-    protected $db_name = "cuentas";
-    protected $cnx;
+    public $manejador = "mysql";
+    public $servidor = "sql176.main-hosting.eu";
+    public $usuario = "u868164586_ubi";
+    public $pass = 'c^=Ui@$M#9j';
+    public $db_name = "u868164586_pruebaUBI";
+    public $cnx;
 
-    protected function getConexion() {
+    function getConexion() {
         try {
-            $params = array(PDO::ATTR_PERSISTENT => true, PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
-            $this->cnx = new PDO($this->manejador . ":host=" . self::$servidor . ";dbname=" . $this->db_name, self::$usuario, self::$pass, $params);
+            $cadena = $this->manejador . ':host=' . $this->servidor. ';dbname=' . $this->db_name;
+            $this->cnx = new PDO($cadena, $this->usuario, $this->pass);
             return $this->cnx;
         } catch (PDOException $ex) {
-            echo "Error en la conexi�n : " . $ex->getMessage();
+             echo "Error en la conexion : " . $ex->getMessage();
         }
     }
 }

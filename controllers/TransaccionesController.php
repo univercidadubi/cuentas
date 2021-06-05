@@ -1,21 +1,17 @@
 <?php
 
-include_once('model/Cuentas.php');
 
 class TransaccionesController {
 
-    public $model;
-
-    public function __construct() {
-        $this->model = new Cuentas();
+    function obtSaldo($cuenta_id=""){
+        $cnt = new Transaccion();
+        $r = $cnt->saldo($cuenta_id);
+        return json_encode($r[0]);
     }
-
-    public function actionCreate() {
-        $json = file_get_contents('php://input');
-        $data = json_decode($json);
-        $val = (array) $data;
-        $resp = $this->model->crearTran($val["monto"], $val["tipo"], $val["tipomoneda"], $val["cuenta"]);
-        return json_encode($resp);
+    function registrar($cuenta_id="", $monto=0){
+        $cnt = new Transaccion();
+        $r = $cnt->registro($cuenta_id, $monto);
+        obtSaldo($cuenta_id);
     }
 
 }
