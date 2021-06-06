@@ -1,10 +1,11 @@
 <?php
-
+header('Access-Control-Allow-Origin:*');
+header('Content-Type: application/json');
 include_once('./../controllers/TransaccionesController.php');
 include_once('./../model/Transaccion.php');
 include_once('./../utils/Conexion.php');
 $type = getenv('REQUEST_METHOD');
-$cuentas = new TransaccionesControler();
+$cuentas = new TransaccionesController();
 switch ($type) {
     case('GET'):
             echo $cuentas->obtSaldo($_GET["cuenta_id"]);

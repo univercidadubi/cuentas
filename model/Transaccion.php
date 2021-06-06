@@ -7,7 +7,6 @@ class Transaccion {
     public function saldo($id = "") {
         try {
             $sql = "SELECT SUM(monto) saldo FROM {$this->tableName} WHERE cuenta_id = '{$id}';";
-            echo $sql;
             $cnx = new Conexion();
             $c = $cnx->getConexion();
             $resultado = $c->query($sql) or die($sql);
@@ -18,8 +17,7 @@ class Transaccion {
     }
 
     public function registro($cuenta, $monto) {
-        $sql = "INSERT INTO {$this->tableName} (cuenta_id, monto)"
-                . " VALUES ('" . $cuenta . "',".$monto.");";
+        $sql = "INSERT INTO {$this->tableName} (cuenta_id, monto) VALUES ('" . $cuenta . "',".$monto.");";
         $cnx = new Conexion();
         $c = $cnx->getConexion();
         $c->query($sql) or die($sql);
