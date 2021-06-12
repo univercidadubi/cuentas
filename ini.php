@@ -10,13 +10,10 @@ $cuentas = new CuentasControler();
 $transax = new TransaccionesController();
 switch ($type) {
     case('GET'):
-        $urx = explode("?", $url);
-        if ($urx[0] == 'cuentas') {
-            if (count($urx) == 1) {
-                echo $cuentas->actionIndex();
-            } else {
-                echo $cuentas->actionView($_GET["id"]);
-            }
+        if (isset($_GET["id"])) {
+            echo $cuentas->actionView($_GET["id"]);
+        } else {
+            echo $cuentas->actionIndex();
         }
         break;
     case('POST'):

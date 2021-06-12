@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATM</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/jquery/jquery-ui.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br/>
+                    <p class="text-end">
+                        <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail"
+                                value="50"></button>
+                    </p>
+                    <p class="text-end" style="margin-top: 25px">
+                        <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail"
+                                value="100"></button>
+                    </p>
+                    <p class="text-end" style="margin-top: 25px">
+                        <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail"
+                                value="200"></button>
+                    </p>
+                    <p class="text-end" style="margin-top: 25px">
+                        <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail"
+                                value="300"></button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="pantalla">
+                <div class="row" id="pantallamoneydesc" style="display: none; overflow: auto;height: 350px;">
+                    <h2 class="text-center"><span>Saldo</span> <span id="saldomoney"></span></h2>
+                    <p class="text-center text-danger">Transaccion exitosa</p>
+                    <div id="listadotransacciones" class="list-group">
+                    </div>
+                </div>
+                <div class="row" id="pantallamoney">
+                    <div class="col-sm-3">
+                        <h4 class="paddingtext">50</h4>
+                        <h4 class="paddingtext">100</h4>
+                        <h4 class="paddingtext">200</h4>
+                        <h4 class="paddingtext">300</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <br/><br/>
+                        <br/><br/>
+                        <label class="text-center">Codigo</label>
+                        <input class="form-control form-control-lg" placeholder="60" id="textCod" type="text">
+                    </div>
+                    <div class="col-sm-3">
+                        <h4 class="text-end paddingtext">400</h4>
+                        <h4 class="text-end paddingtext">500</h4>
+                        <h4 class="text-end paddingtext">600</h4>
+                        <h4 class="text-end paddingtext">Otro</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-5"><img src="assets/money.gif" id="moneyimg" style="display: none" width="100%"/>
+                </div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-5">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12">
+                    <br/>
+                    <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail" value="400"></button>
+                    <br/><br/>
+                    <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail" value="500"></button>
+                    <br/><br/>
+                    <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail" value="600"></button>
+                    <br/><br/>
+                    <button type="button" class="btn btn-secondary paddingtextbtn img-thumbnail" value="0"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="assets/jquery/external/jquery/jquery.js"></script>
+<script src="assets/jquery/jquery-ui.js"></script>
+<script src="assets/js/main.js"></script>
+</html>
